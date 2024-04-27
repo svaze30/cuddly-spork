@@ -13,10 +13,9 @@ class task:
             
             
 class nuser:
-    def __init__(self,username,password,profilePic):
+    def __init__(self,username,password):
         self.username=username
         self.password=password
-        self.profilePic=profilePic
         
 class blogpost:
     def __init__(self,author,text,srNo):
