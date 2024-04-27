@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet"/>
-</head>
+    <link rel="stylesheet" />
+    <!-- <link href="./output.css" rel="stylesheet" /> -->
+  </head>
 
-
-<body>
+  <body>
     <header>
-        <div>
-            <h1>
-                TO DO LIST APP
-            </h1>
-        </div>
+      <div>
+        <h1 class="text-3xl font-bold underline">TO DO LIST APP</h1>
+      </div>
     </header>
 
-    {% with messages=get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{category}}">
-                        {{message}}
-                    </div>
-                {% endfor %}
-            {% endif %}
-    {% endwith %}
-
+    {% with messages=get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for message in messages %}
+    <div class="alert alert-{{category}}">{{message}}</div>
+    {% endfor %} {% endif %} {% endwith %}
 
     <main>
-        <div class="main">
-            {% block main %}
-            {% endblock %}
-        </div>
+      <div class="main">{% block main %} {% endblock %}</div>
 
-        <div>
-            {% block footer %}{% endblock %}
-        </div>
+      <div>{% block footer %}{% endblock %}</div>
     </main>
-</body>
+  </body>
+</html>
