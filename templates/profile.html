@@ -1,5 +1,66 @@
-{%extends Default.html%}
+{%extends "Default.html"%}
 
 {%block main%}
+<img src="data:image/jpeg;base64,{{ base64_encoded_image }}" alt="Profile Picture">
+
+<div>
+    <h3>Username:{{username}}</h3>
+    <h3>Interests:</h3>
+    <h4>1:{{interests[0]}}</h4>
+    <h4>2:{{interests[1]}}</h4>
+    <h4>3:{{interests[2]}}</h4>
+
+    <h4>Bio:{{bio}}</h4>
+</div>
+
+<h3>UPDATE YOUR INTERESTS<h3>
+
+<div>
+    <form
+    method="POST"
+    action=""
+    class="flex flex-col gap-4 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4"
+  >
+    {{ form.hidden_tag() }}
+    <fieldset class="flex flex-col gap-4 m-4 shrink">
+      <legend
+        class="w-full flex p-2 mb-4 justify-center justify-items-center text-lg font-bold"
+      >
+        Join Us Today!!
+      </legend>
+
+      <div class="form flex justify-between">
+        {{form.inter1.label(class="form-control-label p-2")}}
+        {{form.inter1(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+
+      <div class="password flex justify-between">
+        {{form.inter2.label(class="form-control-label p-2")}}
+        {{form.inter2(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+
+      <div class="password flex justify-between">
+        {{form.inter3.label(class="form-control-label p-2")}}
+        {{form.inter3(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+
+      <div class="password flex justify-between">
+        {{form.bio.label(class="form-control-label p-2")}}
+        {{form.bio(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+    </fieldset>
+
+    <div class="flex justify-center m-4">
+      {{ form.submit(class="btn px-6 py-4 flex justify-items-center border
+      border-slate-400 rounded-lg shadow-lg bg-cyan-400 font-bold text-md") }}
+    </div>
+
+    
+  </form>
+</div>
 
 {%endblock%}

@@ -23,3 +23,10 @@ class CommentForm(FlaskForm):
 class PostForm(FlaskForm):
     Text=TextAreaField('Post Body',validators=[DataRequired(),length(min=1,max=256)])
     submit=SubmitField('Post')
+    
+class interestForm(FlaskForm):
+    inter1=StringField('',validators=[length(max=20)])
+    inter2=StringField('',validators=[length(max=20)])
+    inter3=StringField('',validators=[length(max=20)])
+    bio=StringField('Bio',validators=[length(min=5,max=256)])
+    submit=SubmitField('Update')

@@ -3,10 +3,11 @@ from tasks import *
 from datetime import *
 import datetime
 from AddTaskForm import AddTaskForm
-from LoginForm import SignUpForm, LogInForm,CommentForm, PostForm
+from LoginForm import SignUpForm, LogInForm,CommentForm, PostForm,interestForm
 from flask_bcrypt import Bcrypt
 from flask_pymongo import PyMongo 
 import urllib.parse
+import base64
 app=Flask(__name__)
 app.config['SECRET_KEY']='87c725f6be51b16e19446e14b59149e7'
 username = urllib.parse.quote_plus("shettynew17")
@@ -64,7 +65,8 @@ def login():
             if(user.username==form.Username.data):
                 if(bcrypt.check_password_hash(user.password,form.Password.data)):
                     flag=1
-                    session['username']=form.Username.data
+                    session['username']=form.Username
+                    session.modified=True
                     return redirect(url_for("maint"))
                 else:
                     flash(f'Incorrect Password for {form.Username.data}','error')
@@ -82,6 +84,10 @@ def signin():
             db.insert_one({'username':form.Username.data,
                            'password':form.Password.data})
             Users.append(nuser(form.Username.data,bcrypt.generate_password_hash(form.Password.data)))
+            session['ProfilePic']=form.profilePic.data
+            session['interests']=["","",""]
+            session['bio']=""
+            session.modified=True
             flash(f'Account Successfully created for {form.Username.data}','success')
             return redirect(url_for("login"))
         else:
@@ -116,7 +122,18 @@ def createPost():
 
 @app.route("/profile",methods=['GET','POST'])
 def profile():
-    return render_template("profile.html")    
+    form=interestForm()
+    image_data = session['ProfilePic']
+    base64_encoded_image = base64.b64encode(image_data.encode()).decode('utf-8')
+    if form.validate_on_submit():
+        session['interests'][0]=form.inter1.data
+        session['interests'][1]=form.inter2.data
+        session['interests'][2]=form.inter3.data
+        session['bio']=form.bio.data
+        session.modified=True
+        print(session['interests'])
+        return redirect(url_for("profile"))
+    return render_template("profile.html", base64_encoded_image=base64_encoded_image,username=session['username'],interests=session['interests'],form=form,bio=session['bio'])
 
 # @app.route("/<username>")
 # def user(username):
