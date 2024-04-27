@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <header class="flex w-full">
+    <header class="flex w-full shadow-lg bg-cyan-300">
       <!-- <div>
         <h1 class="text-3xl font-bold underline">TO DO LIST APP</h1>
       </div> -->
@@ -46,7 +46,11 @@
 
     {% with messages=get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for message in messages %}
-    <div class="alert alert-{{category}}">{{message}}</div>
+    <div
+      class="alert alert-{{category}} bg-green-100 text-md p-2 border border-green-200"
+    >
+      {{message}}
+    </div>
     {% endfor %} {% endif %} {% endwith %}
 
     <main class="h-screen">
