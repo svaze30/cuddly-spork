@@ -1,5 +1,5 @@
 {%extends "Default.html"%} {%block main%}
-<div class="whole-profile flex flex-col justify-around md:flex-row m-8">
+<div class="whole-profile flex flex-col justify-around md:flex-row m-8 gap-4">
 
   <div class="prof-show p-2 w-[300px] border border-slate-400 rounded-lg shadow-lg ">
     <img
@@ -19,7 +19,7 @@
     </div>
   </div>
   
-  <div class="update-interest border border-slate-400 rounded-lg shadow-lg p-2">
+  <div class="update-interest flex flex-shrink overflow-hidden border border-slate-400 rounded-lg shadow-lg p-2">
     
     <div>
     <h3 class="font-bold">
@@ -31,14 +31,14 @@
         class="flex flex-col gap-4 justify-items-center align-items-center  py-4"
         >
         {{ form.hidden_tag() }}
-        <fieldset class="flex flex-col gap-4 m-4 shrink">
+        <fieldset class="flex flex-col gap-4 m-4 max-w-max">
           <legend
           class="w-full flex p-2 mb-4 justify-center justify-items-center text-lg font-bold"
           >
           Interests
         </legend>
         
-        <div class="form flex justify-between">
+        <div class="form flex justify-between max-w-max">
           {{form.inter1.label(class="form-control-label p-2" )}}
           {{form.inter1(class="form-control border border-slate-400 rounded-sm
           shadow-lg p-2")}}

@@ -683,6 +683,15 @@ video {
   max-width: 400px;
 }
 
+.max-w-max{
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.flex-shrink{
+  flex-shrink: 1;
+}
+
 .shrink{
   flex-shrink: 1;
 }
@@ -721,6 +730,10 @@ video {
 
 .gap-y-8{
   row-gap: 2rem;
+}
+
+.overflow-hidden{
+  overflow: hidden;
 }
 
 .rounded-full{
