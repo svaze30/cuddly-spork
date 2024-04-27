@@ -17,6 +17,11 @@ tasks=[
     task("Attend Birthday",datetime.date(2024,1,18))
 ]
 
+posts=[
+    blogpost("Siddhesh Shrawne","What is 2+2???????"),
+    blogpost("Swaroop Vaze","Aaye Newbie!!")
+]
+
 
 
 def createProfile(form):
@@ -71,7 +76,7 @@ def signin():
 
 @app.route("/maint",methods=['GET','POST'])
 def maint():
-    return render_template("home.html",tasks=tasks)
+    return render_template("home.html",posts=posts)
 
 # @app.route("/<username>")
 # def user(username):
