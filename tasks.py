@@ -22,3 +22,9 @@ class blogpost:
     def __init__(self,author,text):
         self.author=author
         self.text=text
+        self.comments=[]
+        
+class comment:
+    def __init__(self,author,text):
+        self.author=author
+        self.text=text

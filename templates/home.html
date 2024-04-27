@@ -3,6 +3,10 @@
 {% block main %}
 {% for post in posts %}
     <h3>{{post.author}}</h3>
-    <h6>{{post.text}}</h6>
+    <h4>{{post.text}}</h4>
+    {% for comment in post.comments %}
+        <h4>{{comment.author}}</h4>
+        <h5>{{comment.text}}</h5>
+    {% endfor %}
 {% endfor %}
 {% endblock %}

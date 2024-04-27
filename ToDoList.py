@@ -20,6 +20,7 @@ tasks=[
 posts=[
     blogpost("Siddhesh Shrawne","What is 2+2???????"),
     blogpost("Swaroop Vaze","Aaye Newbie!!")
+    
 ]
 
 
