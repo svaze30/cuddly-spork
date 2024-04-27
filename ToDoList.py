@@ -71,7 +71,7 @@ def signin():
 
 @app.route("/maint",methods=['GET','POST'])
 def maint():
-    return render_template("test.html",tasks=tasks)
+    return render_template("home.html",tasks=tasks)
 
 # @app.route("/<username>")
 # def user(username):
