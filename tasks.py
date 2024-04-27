@@ -19,9 +19,10 @@ class nuser:
         self.profilePic=profilePic
         
 class blogpost:
-    def __init__(self,author,text):
+    def __init__(self,author,text,srNo):
         self.author=author
         self.text=text
+        self.srNo=srNo
         self.comments=[]
         
 class comment:

@@ -3,13 +3,20 @@ from tasks import *
 from datetime import *
 import datetime
 from AddTaskForm import AddTaskForm
-from LoginForm import SignUpForm, LogInForm
+from LoginForm import SignUpForm, LogInForm,CommentForm
 from flask_bcrypt import Bcrypt
-
+from flask_pymongo import PyMongo 
+import urllib.parse
 app=Flask(__name__)
 app.config['SECRET_KEY']='87c725f6be51b16e19446e14b59149e7'
+username = urllib.parse.quote_plus("shettynew17")
+password = urllib.parse.quote_plus("spit@123")
+app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.xpwn0wm.mongodb.net/Login'
 bcrypt=Bcrypt(app)
 
+mongo = PyMongo(app)
+
+db = mongo.db.Login_details
 
 tasks=[
     task("Get a Haircut",datetime.date(2024,2,20)),
@@ -18,9 +25,8 @@ tasks=[
 ]
 
 posts=[
-    blogpost("Siddhesh Shrawne","What is 2+2???????"),
-    blogpost("Swaroop Vaze","Aaye Newbie!!")
-    
+    blogpost("Siddhesh Shrawne","What is 2+2???????",0),
+    blogpost("Swaroop Vaze","Aaye Newbie!!",1)
 ]
 
 
@@ -68,6 +74,8 @@ def signin():
     form=SignUpForm()
     if(form.validate_on_submit()):
         if createProfile(form):
+            db.insert_one({'username':form.Username.data,
+                           'password':form.Password.data})
             flash(f'Account Successfully created for {form.Username.data}','success')
             return redirect(url_for("login"))
         else:
@@ -75,15 +83,26 @@ def signin():
             redirect(url_for("signin"))
     return render_template("Signin.html",form=form)
 
-@app.route("/maint",methods=['GET','POST'])
+@app.route("/maint", methods=['GET', 'POST'])
 def maint():
-    return render_template("home.html",posts=posts)
+    session['username']="siddhesh"
+    form=CommentForm()
+    if(form.validate_on_submit()):
+        post_id = int(request.args.get('srNo'))  # Get the post_id from the URL
+        new_comment = comment(session['username'], form.Text.data)
+        posts[post_id].comments.append(new_comment)
+        flash('Comment posted Successfully!!', 'success')
+        print("Comment posted!!!")
+        return redirect(url_for("maint"))
+    else:
+        print()
+    return render_template("home.html", posts=posts, form=form)
+
 
 # @app.route("/<username>")
 # def user(username):
 #     return render_template("test.html",tasks=tasks)
 
 
-setattr(tasks[2],'status',"DONE")
 if(__name__=='__main__'):
     app.run(debug=True)
