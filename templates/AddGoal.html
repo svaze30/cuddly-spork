@@ -1,0 +1,58 @@
+{% extends "Default.html" %}
+
+{% block main %}
+
+<div>
+    {% for task in tasks %}
+        {% if task.status=="OVERDUE" %}
+            <div>
+                <h3>{{task.name}}</h3>
+                <h4>{{task.status}}</h4>
+                <h5>{{task.deadline}}</h5>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% for task in tasks %}
+        {% if task.status=="PENDING" %}
+            <div>
+                <h3>{{task.name}}</h3>
+                <h4>{{task.status}}</h4>
+                <h5>{{task.deadline}}</h5>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% for task in tasks %}
+        {% if task.status=="DONE" %}
+            <div>
+                <h3>{{task.name}}</h3>
+                <h4>{{task.status}}</h4>
+                <h5>{{task.deadline}}</h5>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <legend>
+            Add Task!!
+        </legend>
+
+        <div>
+            {{form.TaskName.label(class="form-control-label")}}
+            {{form.TaskName(class="form-control")}}
+        </div>
+
+        <div>
+            {{form.TaskDeadline.label(class="form-control-label")}}
+            {{form.TaskDeadline(class="form-control")}}
+        </div>
+    </fieldset>
+
+    <div>
+        {{ form.submit }}
+    </div>
+{% endblock %}

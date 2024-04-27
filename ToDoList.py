@@ -135,10 +135,16 @@ def profile():
         return redirect(url_for("profile"))
     return render_template("profile.html", base64_encoded_image=base64_encoded_image,username=session['username'],interests=session['interests'],form=form,bio=session['bio'])
 
-# @app.route("/<username>")
-# def user(username):
-#     return render_template("test.html",tasks=tasks)
-
+@app.route("/Goals",methods=['POST','GET'])
+def goals():
+    form=AddTaskForm()
+    if form.validate_on_submit():
+        n_task=form.TaskName.data
+        n_deadline=form.TaskDeadline.data
+        obj=task(n_task,n_deadline)
+        tasks.append(obj)
+        return redirect(url_for('maint'))
+    return render_template("AddGoal.html",form=form,tasks=tasks)
 
 if(__name__=='__main__'):
     app.run(debug=True)
