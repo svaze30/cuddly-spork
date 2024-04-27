@@ -31,6 +31,11 @@ posts=[
     blogpost("Swaroop Vaze","Aaye Newbie!!",1)
 ]
 
+Users=[
+    nuser("Dimsas",bcrypt.generate_password_hash("siddh")),
+    nuser("Swaroop",bcrypt.generate_password_hash("Svaze"))
+]
+
 
 
 def createProfile(form):
@@ -60,11 +65,10 @@ def login():
                 if(bcrypt.check_password_hash(user.password,form.Password.data)):
                     flag=1
                     session
-                    return redirect(url_for("user",username=form.Username.data))
+                    return redirect(url_for("maint"))
                 else:
                     flash(f'Incorrect Password for {form.Username.data}','error')
                     session['username']=user.username
-                    session['profilePic']=user.profilePic
                     return redirect(url_for("login"))
         if flag==0:
             flash(f'No account found for {form.Username.data}','error')
@@ -78,6 +82,7 @@ def signin():
         if createProfile(form):
             db.insert_one({'username':form.Username.data,
                            'password':form.Password.data})
+            Users.append(nuser(form.Username.data,bcrypt.generate_password_hash(form.Password.data)))
             flash(f'Account Successfully created for {form.Username.data}','success')
             return redirect(url_for("login"))
         else:
@@ -87,7 +92,6 @@ def signin():
 
 @app.route("/home", methods=['GET', 'POST'])
 def maint():
-    session['username']="siddhesh"
     form=CommentForm()
     if(form.validate_on_submit()):
         post_id = int(request.args.get('srNo'))  # Get the post_id from the URL
@@ -103,7 +107,6 @@ def maint():
 @app.route("/createPost",methods=['GET','POST'])
 def createPost():
     global NO_POSTS
-    session['username']='siddhesh'
     form=PostForm()
     if(form.validate_on_submit()):
         posts.append(blogpost(session['username'],form.Text.data,NO_POSTS))
