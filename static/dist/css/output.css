@@ -594,8 +594,85 @@ video {
   position: static;
 }
 
+.m-4{
+  margin: 1rem;
+}
+
+.mx-32{
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+
+.ml-72{
+  margin-left: 18rem;
+}
+
+.mr-20{
+  margin-right: 5rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
+}
+
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .block{
   display: block;
+}
+
+.flex{
+  display: flex;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.shrink{
+  flex-shrink: 1;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.justify-end{
+  justify-content: flex-end;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-items-center{
+  justify-items: center;
+}
+
+.gap-4{
+  gap: 1rem;
+}
+
+.gap-10{
+  gap: 2.5rem;
+}
+
+.gap-14{
+  gap: 3.5rem;
+}
+
+.gap-2{
+  gap: 0.5rem;
 }
 
 .border-2{
@@ -607,9 +684,41 @@ video {
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
+.p-10{
+  padding: 2.5rem;
+}
+
+.p-2{
+  padding: 0.5rem;
+}
+
+.px-10{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.align-middle{
+  vertical-align: middle;
+}
+
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold{
@@ -627,6 +736,8 @@ video {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  border: 1px solid gray;
+  /* NEEDS TO BE REMOVED*/
 }
 
 /* FONTS */
@@ -737,4 +848,46 @@ video {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-style: italic;
+}
+
+@media (min-width: 640px){
+  .sm\:flex{
+    display: flex;
+  }
+
+  .sm\:flex-row{
+    flex-direction: row;
+  }
+
+  .sm\:flex-col{
+    flex-direction: column;
+  }
+
+  .sm\:gap-4{
+    gap: 1rem;
+  }
+
+  .sm\:gap-14{
+    gap: 3.5rem;
+  }
+
+  .sm\:gap-12{
+    gap: 3rem;
+  }
+
+  .sm\:px-10{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .sm\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:gap-4{
+    gap: 1rem;
+  }
 }

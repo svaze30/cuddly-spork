@@ -1,37 +1,30 @@
-{% extends "Default.html" %}
-
-{% block main %}
+{% extends "Default.html" %} {% block main %}
 <form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <fieldset>
-        <legend>
-            Join Us Today!!
-        </legend>
+  {{ form.hidden_tag() }}
+  <fieldset>
+    <legend>Join Us Today!!</legend>
 
-        <div class="form">
-            {{form.Username.label(class="form-control-label")}}
-            {{form.Username(class="form-control")}}
-        </div>
-
-        <div class="password">
-            {{form.Password.label(class="form-control-label")}}
-            {{form.Password(class="form-control")}}
-        </div>
-
-        <div class="confirm-password">
-            {{form.ConfirmPassword.label(class="form-control-label")}}
-            {{form.ConfirmPassword(class="form-control")}}
-        </div>
-
-        <div class="ProfilePic">
-            {{form.profilePic.label(class="form-control-label")}}
-            {{form.profilePic(class="form-control")}}
-        </div>
-
-    </fieldset>
-
-    <div>
-        {{ form.submit(class="btn") }}
+    <div class="form">
+      {{form.Username.label(class="form-control-label")}}
+      {{form.Username(class="form-control")}}
     </div>
+
+    <div class="password">
+      {{form.Password.label(class="form-control-label")}}
+      {{form.Password(class="form-control")}}
+    </div>
+
+    <div class="confirm-password">
+      {{form.ConfirmPassword.label(class="form-control-label")}}
+      {{form.ConfirmPassword(class="form-control")}}
+    </div>
+
+    <div class="ProfilePic">
+      {{form.profilePic.label(class="form-control-label")}}
+      {{form.profilePic(class="form-control")}}
+    </div>
+  </fieldset>
+
+  <div>{{ form.submit(class="btn") }}</div>
 </form>
-{%endblock%}
+{%endblock%} {% block blog %} teri maa {% endblock %}

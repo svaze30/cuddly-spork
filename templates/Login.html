@@ -1,21 +1,30 @@
 {% extends "Default.html" %} {% block main %}
+<div class="flex">
+  <form
+    method="POST"
+    action=""
+    class="flex flex-col gap-4 justify-items-center align-items-center"
+  >
+    {{ form.hidden_tag() }}
+    <fieldset class="flex flex-col gap-4 m-4 shrink">
+      <legend class="w-full flex p-2 mb-4 justify-center justify-items-center">
+        Join Us Today!!
+      </legend>
 
-<form method="POST" action="">
-  {{ form.hidden_tag() }}
-  <fieldset>
-    <legend>Join Us Today!!</legend>
+      <div class="form flex">
+        {{form.Username.label(class="form-control-label p-2")}}
+        {{form.Username(class="form-control border-2 ")}}
+      </div>
 
-    <div class="form">
-      {{form.Username.label(class="form-control-label ")}}
-      {{form.Username(class="form-control border-2 border-red-500")}}
+      <div class="password flex">
+        {{form.Password.label(class="form-control-label p-2")}}
+        {{form.Password(class="form-control")}}
+      </div>
+    </fieldset>
+
+    <div class="flex justify-items-center m-4">
+      {{ form.submit(class="btn p-2 flex justify-items-center") }}
     </div>
-
-    <div class="password">
-      {{form.Password.label(class="form-control-label")}}
-      {{form.Password(class="form-control")}}
-    </div>
-  </fieldset>
-
-  <div>{{ form.submit(class="btn") }}</div>
-</form>
+  </form>
+</div>
 {%endblock%}
