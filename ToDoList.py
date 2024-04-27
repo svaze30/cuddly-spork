@@ -3,7 +3,7 @@ from tasks import *
 from datetime import *
 import datetime
 from AddTaskForm import AddTaskForm
-from LoginForm import SignUpForm, LogInForm,CommentForm
+from LoginForm import SignUpForm, LogInForm,CommentForm, PostForm
 from flask_bcrypt import Bcrypt
 from flask_pymongo import PyMongo 
 import urllib.parse
@@ -17,6 +17,8 @@ bcrypt=Bcrypt(app)
 mongo = PyMongo(app)
 
 db = mongo.db.Login_details
+
+NO_POSTS=2
 
 tasks=[
     task("Get a Haircut",datetime.date(2024,2,20)),
@@ -98,6 +100,16 @@ def maint():
         print()
     return render_template("home.html", posts=posts, form=form)
 
+@app.route("/createPost",methods=['GET','POST'])
+def createPost():
+    global NO_POSTS
+    session['username']='siddhesh'
+    form=PostForm()
+    if(form.validate_on_submit()):
+        posts.append(blogpost(session['username'],form.Text.data,NO_POSTS))
+        NO_POSTS=NO_POSTS+1
+        return redirect(url_for("maint"))
+    return render_template("CreatePost.html",form=form)
 
 # @app.route("/<username>")
 # def user(username):

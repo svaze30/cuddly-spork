@@ -1,0 +1,16 @@
+{% extends "Default.html" %}
+
+
+{% block main %}
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset>
+      <div class="form">
+        {{form.Text.label(class="form-control-label")}}
+        {{form.Text(class="form-control")}}
+      </div>
+    </fieldset>
+  
+    <div>{{ form.submit(class="btn") }}</div>
+  </form>
+{% endblock %}
