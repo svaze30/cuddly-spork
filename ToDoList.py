@@ -17,10 +17,7 @@ tasks=[
     task("Attend Birthday",datetime.date(2024,1,18))
 ]
 
-Users=[
-    nuser('Siddhesh',bcrypt.generate_password_hash('Siddh').decode('utf-8')),
-    nuser('Samruddhi',bcrypt.generate_password_hash('SumRootD').decode('utf-8'))    
-]
+
 
 def createProfile(form):
     n_user=form.Username.data
@@ -48,9 +45,12 @@ def login():
             if(user.username==form.Username.data):
                 if(bcrypt.check_password_hash(user.password,form.Password.data)):
                     flag=1
+                    session
                     return redirect(url_for("user",username=form.Username.data))
                 else:
                     flash(f'Incorrect Password for {form.Username.data}','error')
+                    session['username']=user.username
+                    session['profilePic']=user.profilePic
                     return redirect(url_for("login"))
         if flag==0:
             flash(f'No account found for {form.Username.data}','error')
@@ -73,20 +73,9 @@ def signin():
 def maint():
     return render_template("test.html",tasks=tasks)
 
-@app.route("/AddTask",methods=['GET','POST'])
-def AddTask():
-    form=AddTaskForm()
-    if form.validate_on_submit():
-        n_task=form.TaskName.data
-        n_deadline=form.TaskDeadline.data
-        obj=task(n_task,n_deadline)
-        tasks.append(obj)
-        return redirect(url_for('maint'))
-    return render_template("AddTask.html",form=form)
-
-@app.route("/<username>")
-def user(username):
-    return render_template("test.html",tasks=tasks)
+# @app.route("/<username>")
+# def user(username):
+#     return render_template("test.html",tasks=tasks)
 
 
 setattr(tasks[2],'status',"DONE")

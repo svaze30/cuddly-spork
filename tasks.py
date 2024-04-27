@@ -13,6 +13,7 @@ class task:
             
             
 class nuser:
-    def __init__(self,username,password):
+    def __init__(self,username,password,profilePic):
         self.username=username
         self.password=password
+        self.profilePic=profilePic
