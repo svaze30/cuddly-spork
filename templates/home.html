@@ -2,11 +2,31 @@
 
 {% block main %}
 {% for post in posts %}
-    <h3>{{post.author}}</h3>
-    <h4>{{post.text}}</h4>
-    {% for comment in post.comments %}
-        <h4>{{comment.author}}</h4>
-        <h5>{{comment.text}}</h5>
-    {% endfor %}
+    <div class="post">
+        <h3>{{ post.author }}</h3>
+        <p>{{ post.text }}</p>
+        <div class="comments">
+            <h4>Comments:</h4>
+            <ul>
+                {% for comment in post.comments %}
+                    <li>{{ comment.author }}: {{ comment.text }}</li>
+                {% endfor %}
+            </ul>
+
+            
+            <form method="POST" action="{{ url_for('maint', srNo=post.srNo) }}">
+                {{ form.hidden_tag() }}
+                <div class="Comment">
+                    {{ form.Text.label(class="form-control-label") }}
+                    {{ form.Text(class="form-control") }}
+                </div>
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+            
+        </div>
+    </div>
 {% endfor %}
 {% endblock %}
+
