@@ -5,11 +5,18 @@ import datetime
 from AddTaskForm import AddTaskForm
 from LoginForm import SignUpForm, LogInForm
 from flask_bcrypt import Bcrypt
-
+from flask_pymongo import PyMongo 
+import urllib.parse
 app=Flask(__name__)
 app.config['SECRET_KEY']='87c725f6be51b16e19446e14b59149e7'
+username = urllib.parse.quote_plus("shettynew17")
+password = urllib.parse.quote_plus("spit@123")
+app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.xpwn0wm.mongodb.net/Login'
 bcrypt=Bcrypt(app)
 
+mongo = PyMongo(app)
+
+db = mongo.db.Login_details
 
 tasks=[
     task("Get a Haircut",datetime.date(2024,2,20)),
@@ -68,6 +75,8 @@ def signin():
     form=SignUpForm()
     if(form.validate_on_submit()):
         if createProfile(form):
+            db.insert_one({'username':form.Username.data,
+                           'password':form.Password.data})
             flash(f'Account Successfully created for {form.Username.data}','success')
             return redirect(url_for("login"))
         else:
