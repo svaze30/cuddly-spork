@@ -1,58 +1,59 @@
-{% extends "Default.html" %}
+{% extends "Default.html" %} {% block main %}
 
-{% block main %}
-
-<div>
-    {% for task in tasks %}
-        {% if task.status=="OVERDUE" %}
-            <div>
-                <h3>{{task.name}}</h3>
-                <h4>{{task.status}}</h4>
-                <h5>{{task.deadline}}</h5>
-            </div>
-        {% endif %}
-    {% endfor %}
-
-    {% for task in tasks %}
-        {% if task.status=="PENDING" %}
-            <div>
-                <h3>{{task.name}}</h3>
-                <h4>{{task.status}}</h4>
-                <h5>{{task.deadline}}</h5>
-            </div>
-        {% endif %}
-    {% endfor %}
-
-    {% for task in tasks %}
-        {% if task.status=="DONE" %}
-            <div>
-                <h3>{{task.name}}</h3>
-                <h4>{{task.status}}</h4>
-                <h5>{{task.deadline}}</h5>
-            </div>
-        {% endif %}
-    {% endfor %}
+<div class="flex flex-col md:flex-col m-4 gap-4">
+  {% for task in tasks %} {% if task.status=="OVERDUE" %}
+  <div class="flex flex-col p-4 border border-slate-400 rounded-md shadow-md">
+    <div class="flex flex-row">
+      <h3 class="p-2 font-medium">{{task.name}}</h3>
+      <h5 class="p-2 text-xs align-center mt-1">{{task.deadline}}</h5>
+    </div>
+    <h4 class="p-2 text-red-700 font-bold">{{task.status}}</h4>
+  </div>
+  {% endif %} {% endfor %} {% for task in tasks %} {% if task.status=="PENDING"
+  %}
+  <div class="flex flex-col p-4 border border-slate-400 rounded-md shadow-md">
+    <div class="flex flex-row">
+      <h3 class="p-2 font-medium">{{task.name}}</h3>
+      <h5 class="p-2 text-xs">{{task.deadline}}</h5>
+    </div>
+    <h4 class="p-2 text-yellow-700 font-bold">{{task.status}}</h4>
+  </div>
+  {% endif %} {% endfor %} {% for task in tasks %} {% if task.status=="DONE" %}
+  <div class="flex flex-col p-4 border border-slate-400 rounded-md shadow-md">
+    <div class="flex flex-row">
+      <h3 class="p-2 font-medium">{{task.name}}</h3>
+      <h5 class="p-2 text-xs">{{task.deadline}}</h5>
+    </div>
+    <h4 class="p-2 text-green-700 font-bold">{{task.status}}</h4>
+  </div>
+  {% endif %} {% endfor %}
 </div>
 
-<form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <fieldset>
-        <legend>
-            Add Task!!
-        </legend>
-
-        <div>
-            {{form.TaskName.label(class="form-control-label")}}
-            {{form.TaskName(class="form-control")}}
-        </div>
-
-        <div>
-            {{form.TaskDeadline.label(class="form-control-label")}}
-            {{form.TaskDeadline(class="form-control")}}
-        </div>
-    </fieldset>
+<form
+  method="POST"
+  action=""
+  class="flex flex-col md:flex-col m-4 gap-4 border border-slate-400 rounded-lg shadow-lg"
+>
+  {{ form.hidden_tag() }}
+  <fieldset class="m-4 flex flex-col">
+    <legend class="p-2 font-bold">Add Task!!</legend>
 
     <div>
-        {{ form.submit }}
+      {{form.TaskName.label(class="form-control-label p-2")}}
+      {{form.TaskName(class="form-control p-2 border border-slate-400 rounded-lg
+      shadow-lg")}}
     </div>
-{% endblock %}
+
+    <div>
+      {{form.TaskDeadline.label(class="form-control-label p-2")}}
+      {{form.TaskDeadline(class="form-control p-2 border border-slate-400
+      rounded-lg shadow-lg")}}
+    </div>
+  </fieldset>
+
+  <div class="m-4 p-2">
+    {{ form.submit(class="p-2 px-6 py-4 flex justify-items-center border
+    border-slate-400 rounded-lg shadow-lg bg-cyan-400 font-bold text-md") }}
+  </div>
+  {% endblock %}
+</form>
