@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!-- <link href="./output.css" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='dist/css/output.css')}}"
+    />
   </head>
 
   <body>
@@ -18,17 +25,17 @@
 
     <div class="container">
       <nav class="navbar">
-           <div class="img">
-                <img src="" alt="Logo">
-           </div>
-           <a class="active" href="#"><i class="fa fa-bullseye"></i> Goals</a>
-           <a class="active" href="#"><i class="fa fa-sticky-note-o"></i> Notes</a>
-           <a href="#"><i class="fa fa-fw fa-search"></i> Groups</a>
-           <a href="#"><i class="fa fa-graduation-cap"></i> Courses</a>
-           <a href="#"><i class="fa fa-user-friends"></i>  Friends</a>
-           <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+        <div class="img">
+          <img src="" alt="Logo" />
+        </div>
+        <a class="active" href="#"><i class="fa fa-bullseye"></i> Goals</a>
+        <a class="active" href="#"><i class="fa fa-sticky-note-o"></i> Notes</a>
+        <a href="#"><i class="fa fa-fw fa-search"></i> Groups</a>
+        <a href="#"><i class="fa fa-graduation-cap"></i> Courses</a>
+        <a href="#"><i class="fa fa-user-friends"></i> Friends</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
       </nav>
- </div>
+    </div>
 
     {% with messages=get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for message in messages %}
