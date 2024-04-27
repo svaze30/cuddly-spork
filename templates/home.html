@@ -25,6 +25,7 @@
           {{ form.Text.label(class="form-control-label text-xs p-2") }} {{
           form.Text(class="form-control") }}
         </div>
+        <div>{{ form.submit(class="btn") }}</div>
         <div class="">{{ form.submit(class="btn m-2 p-2") }}</div>
       </form>
     </div>
@@ -36,3 +37,37 @@
   +
 </button>
 {% endfor %} {% endblock %}
+
+{% block swaroop %}
+    <div>
+        <br>
+        <h2>Start your Coding <br> journey today</h2>
+        <button onclick="window.location.href='https://leetcode.com/'">LEETCODE</button>
+        <button onclick="window.location.href='https://codechef.com/'">CODECHEF</button>
+        <button onclick="window.location.href='https://codeforces.com/'">CODEFORCES</button>
+        <button onclick="window.location.href='https://Hackerrank.com/'">HACKERRANK</button>
+    </div>
+
+    <div>
+        <div class="Card1">
+            <h2>Learn JAVA</h2>
+            <p>Get hands-on experience and master <br> the basic syntax of Java to <br> jumpstart your coding journey</p>
+            <h4>56.6K+ learners</h4>
+            <button>View this course</button>
+        </div>
+        <div class="Card2">
+            <h2>Learn JAVA</h2>
+            <p>Get hands-on experience and master <br> the basic syntax of Java to <br> jumpstart your coding journey</p>
+            <h4>56.6K+ learners</h4>
+            <button>View this course</button>
+        </div>
+        <div class="Card3">
+            <h2>Learn JAVA</h2>
+            <p>Get hands-on experience and master <br> the basic syntax of Java to <br> jumpstart your coding journey</p>
+            <h4>56.6K+ learners</h4>
+            <button>View this course</button>
+
+        </div>
+    </div>
+
+{% endblock %}
