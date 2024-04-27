@@ -64,11 +64,10 @@ def login():
             if(user.username==form.Username.data):
                 if(bcrypt.check_password_hash(user.password,form.Password.data)):
                     flag=1
-                    session
+                    session['username']=form.Username.data
                     return redirect(url_for("maint"))
                 else:
                     flash(f'Incorrect Password for {form.Username.data}','error')
-                    session['username']=user.username
                     return redirect(url_for("login"))
         if flag==0:
             flash(f'No account found for {form.Username.data}','error')
@@ -113,6 +112,11 @@ def createPost():
         NO_POSTS=NO_POSTS+1
         return redirect(url_for("maint"))
     return render_template("CreatePost.html",form=form)
+
+
+@app.route("/profile",methods=['GET','POST'])
+def profile():
+    return render_template("profile.html")    
 
 # @app.route("/<username>")
 # def user(username):
