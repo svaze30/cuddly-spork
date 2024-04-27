@@ -618,6 +618,10 @@ video {
   margin: 1rem;
 }
 
+.m-8{
+  margin: 2rem;
+}
+
 .m-auto{
   margin: auto;
 }
@@ -658,8 +662,17 @@ video {
   height: 100%;
 }
 
+.h-max{
+  height: -moz-max-content;
+  height: max-content;
+}
+
 .w-12{
   width: 3rem;
+}
+
+.w-\[300px\]{
+  width: 300px;
 }
 
 .w-full{
