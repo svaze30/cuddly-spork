@@ -1,30 +1,46 @@
 {% extends "Default.html" %} {% block main %}
-<form method="POST" action="">
-  {{ form.hidden_tag() }}
-  <fieldset>
-    <legend>Join Us Today!!</legend>
+<div class="flex justify-center p-20">
+  <form
+    method="POST"
+    action=""
+    class="flex flex-col gap-4 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4"
+  >
+    {{ form.hidden_tag() }}
+    <fieldset class="flex flex-col gap-4 m-4 shrink">
+      <legend
+        class="w-full flex p-2 mb-4 justify-center justify-items-center text-lg font-bold"
+      >
+        Join Us Today!!
+      </legend>
 
-    <div class="form">
-      {{form.Username.label(class="form-control-label")}}
-      {{form.Username(class="form-control")}}
+      <div class="form flex justify-between">
+        {{form.Username.label(class="form-control-label p-2")}}
+        {{form.Username(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+
+      <div class="password flex justify-between">
+        {{form.Password.label(class="form-control-label p-2")}}
+        {{form.Password(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
+      </div>
+
+      <div class="confirm-password flex justify-between">
+        {{form.ConfirmPassword.label(class="form-control-label p-2")}}
+        {{form.ConfirmPassword(class="form-control border border-slate-400
+        rounded-sm shadow-lg")}}
+      </div>
+
+      <div class="ProfilePic flex justify-between">
+        {{form.profilePic.label(class="form-control-label p-2")}}
+        {{form.profilePic(class="form-control p-2")}}
+      </div>
+    </fieldset>
+
+    <div class="flex justify-center m-4">
+      {{ form.submit(class="btn px-6 py-4 flex justify-items-center border
+      border-slate-400 rounded-lg shadow-lg bg-cyan-400 font-bold text-md") }}
     </div>
-
-    <div class="password">
-      {{form.Password.label(class="form-control-label")}}
-      {{form.Password(class="form-control")}}
-    </div>
-
-    <div class="confirm-password">
-      {{form.ConfirmPassword.label(class="form-control-label")}}
-      {{form.ConfirmPassword(class="form-control")}}
-    </div>
-
-    <div class="ProfilePic">
-      {{form.profilePic.label(class="form-control-label")}}
-      {{form.profilePic(class="form-control")}}
-    </div>
-  </fieldset>
-
-  <div>{{ form.submit(class="btn") }}</div>
-</form>
+  </form>
+</div>
 {%endblock%} {% block blog %} teri maa {% endblock %}

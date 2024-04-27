@@ -1,29 +1,34 @@
 {% extends "Default.html" %} {% block main %}
-<div class="flex">
+<div class="flex justify-center p-20">
   <form
     method="POST"
     action=""
-    class="flex flex-col gap-4 justify-items-center align-items-center"
+    class="flex flex-col gap-4 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4"
   >
     {{ form.hidden_tag() }}
     <fieldset class="flex flex-col gap-4 m-4 shrink">
-      <legend class="w-full flex p-2 mb-4 justify-center justify-items-center">
+      <legend
+        class="w-full flex p-2 mb-4 justify-center justify-items-center text-lg font-bold"
+      >
         Join Us Today!!
       </legend>
 
-      <div class="form flex">
+      <div class="form flex justify-between">
         {{form.Username.label(class="form-control-label p-2")}}
-        {{form.Username(class="form-control border-2 ")}}
+        {{form.Username(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
       </div>
 
-      <div class="password flex">
+      <div class="password flex justify-between">
         {{form.Password.label(class="form-control-label p-2")}}
-        {{form.Password(class="form-control")}}
+        {{form.Password(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
       </div>
     </fieldset>
 
-    <div class="flex justify-items-center m-4">
-      {{ form.submit(class="btn p-2 flex justify-items-center") }}
+    <div class="flex justify-center m-4">
+      {{ form.submit(class="btn px-6 py-4 flex justify-items-center border
+      border-slate-400 rounded-lg shadow-lg bg-cyan-400 font-bold text-md") }}
     </div>
   </form>
 </div>
