@@ -19,3 +19,7 @@ class LogInForm(FlaskForm):
 class CommentForm(FlaskForm):
     Text=TextAreaField('Add a Comment',validators=[DataRequired(),length(min=1,max=256)])
     submit=SubmitField('Post Comment')
+    
+class PostForm(FlaskForm):
+    Text=TextAreaField('Post Body',validators=[DataRequired(),length(min=1,max=256)])
+    submit=SubmitField('Post')
