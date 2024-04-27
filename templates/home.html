@@ -22,10 +22,10 @@
       >
         {{ form.hidden_tag() }}
         <div class="Comment flex flex-col gap-2">
-          {{ form.Text.label(class="form-control-label text-xs") }} {{
+          {{ form.Text.label(class="form-control-label text-xs p-2") }} {{
           form.Text(class="form-control") }}
         </div>
-        <div>{{ form.submit(class="btn") }}</div>
+        <div class="">{{ form.submit(class="btn m-2 p-2") }}</div>
       </form>
     </div>
   </div>
