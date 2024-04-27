@@ -630,6 +630,10 @@ video {
   margin-top: 10rem;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .block{
   display: block;
 }
@@ -660,10 +664,6 @@ video {
 
 .shrink{
   flex-shrink: 1;
-}
-
-.flex-row{
-  flex-direction: row;
 }
 
 .flex-col{
@@ -756,6 +756,10 @@ video {
   padding-bottom: 1rem;
 }
 
+.pt-10{
+  padding-top: 2.5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -784,6 +788,10 @@ video {
   font-weight: 700;
 }
 
+.font-medium{
+  font-weight: 500;
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -807,7 +815,7 @@ video {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 /* FONTS */
