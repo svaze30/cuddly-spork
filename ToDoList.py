@@ -22,9 +22,9 @@ db = mongo.db.Login_details
 NO_POSTS=2
 
 tasks=[
-    task("Get a Haircut",datetime.date(2024,2,20),0),
-    task("Buy Groceries",datetime.date(2024,1,19),1),
-    task("Attend Birthday",datetime.date(2024,1,18),2)
+    task("CCN Network Layer Assignment",datetime.date(2024,2,20),0),
+    task("Revise LA Chapter 2",datetime.date(2024,1,19),1),
+    task("Become a specialist on Codeforces",datetime.date(2024,1,18),2)
 ]
 
 posts=[
