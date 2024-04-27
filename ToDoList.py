@@ -83,7 +83,7 @@ def signin():
             redirect(url_for("signin"))
     return render_template("Signin.html",form=form)
 
-@app.route("/maint", methods=['GET', 'POST'])
+@app.route("/home", methods=['GET', 'POST'])
 def maint():
     session['username']="siddhesh"
     form=CommentForm()
