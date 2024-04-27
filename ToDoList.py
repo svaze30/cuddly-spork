@@ -22,9 +22,9 @@ db = mongo.db.Login_details
 NO_POSTS=2
 
 tasks=[
-    task("Get a Haircut",datetime.date(2024,2,20)),
-    task("Buy Groceries",datetime.date(2024,1,19)),
-    task("Attend Birthday",datetime.date(2024,1,18))
+    task("Get a Haircut",datetime.date(2024,2,20),0),
+    task("Buy Groceries",datetime.date(2024,1,19),1),
+    task("Attend Birthday",datetime.date(2024,1,18),2)
 ]
 
 posts=[
@@ -36,6 +36,15 @@ Users=[
     nuser("Dimsas",bcrypt.generate_password_hash("siddh")),
     nuser("Swaroop",bcrypt.generate_password_hash("Svaze"))
 ]
+
+@app.route("/update_task_status/<int:task_id>", methods=['POST'])
+def update_task_status(task_id):
+    for task in tasks:
+        if task.id == task_id:
+            task.status = "DONE"
+            break
+    return redirect(url_for('goals'))
+
 
 
 
@@ -141,9 +150,9 @@ def goals():
     if form.validate_on_submit():
         n_task=form.TaskName.data
         n_deadline=form.TaskDeadline.data
-        obj=task(n_task,n_deadline)
+        obj=task(n_task,n_deadline,len(tasks))
         tasks.append(obj)
-        return redirect(url_for('maint'))
+        return redirect(url_for('goals'))
     return render_template("AddGoal.html",form=form,tasks=tasks)
 
 if(__name__=='__main__'):

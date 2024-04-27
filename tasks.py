@@ -2,10 +2,10 @@ from datetime import *
 import datetime
 
 class task:
-    def __init__(self,name,deadline):
+    def __init__(self,name,deadline,id):
         self.name=name
         self.deadline=deadline
-        self.ID=-1
+        self.id=id
         if self.deadline>datetime.date.today():
             self.status="PENDING"
         else:

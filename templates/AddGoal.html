@@ -9,6 +9,10 @@
     </div>
     <h4 class="p-2 text-red-700 font-bold">{{task.status}}</h4>
   </div>
+
+  <form method="POST" action="/update_task_status/{{ task.id }}" class="p-2">
+    <button type="submit" class="p-2 px-4 bg-blue-500 text-white rounded-md shadow-md">Mark as Done</button>
+  </form>
   {% endif %} {% endfor %} {% for task in tasks %} {% if task.status=="PENDING"
   %}
   <div class="flex flex-col p-4 border border-slate-400 rounded-md shadow-md">
@@ -18,6 +22,10 @@
     </div>
     <h4 class="p-2 text-yellow-700 font-bold">{{task.status}}</h4>
   </div>
+
+  <form method="POST" action="/update_task_status/{{ task.id }}" class="p-2">
+    <button type="submit" class="p-2 px-4 bg-blue-500 text-white rounded-md shadow-md">Mark as Done</button>
+  </form>
   {% endif %} {% endfor %} {% for task in tasks %} {% if task.status=="DONE" %}
   <div class="flex flex-col p-4 border border-slate-400 rounded-md shadow-md">
     <div class="flex flex-row">
