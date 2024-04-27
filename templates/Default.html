@@ -49,8 +49,8 @@
     <div class="alert alert-{{category}}">{{message}}</div>
     {% endfor %} {% endif %} {% endwith %}
 
-    <main>
-      <div class="main">{% block main %} {% endblock %}</div>
+    <main class="h-screen">
+      <div class="main h-full">{% block main %} {% endblock %}</div>
 
       <div>{% block swaroop %}{% endblock %}</div>
     </main>
