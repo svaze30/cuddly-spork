@@ -1,16 +1,25 @@
-{% extends "Default.html" %}
-
-
-{% block main %}
-<form method="POST" action="">
+{% extends "Default.html" %} {% block main %}
+<div
+  class="justify-content-center flex justify-center p-20 m-auto max-w-[400px]"
+>
+  <form
+    method="POST"
+    action=""
+    class="flex flex-col gap-4 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4 p-4"
+  >
     {{ form.hidden_tag() }}
     <fieldset>
-      <div class="form">
-        {{form.Text.label(class="form-control-label")}}
-        {{form.Text(class="form-control")}}
+      <div class="form flex flex-col">
+        {{form.Text.label(class="form-control-label p-2")}}
+        {{form.Text(class="form-control border border-slate-400 rounded-sm
+        shadow-lg")}}
       </div>
     </fieldset>
-  
-    <div>{{ form.submit(class="btn") }}</div>
+
+    <div>
+      {{ form.submit(class="btn px-6 py-4 flex justify-items-center border
+      border-slate-400 rounded-lg shadow-lg bg-cyan-400 font-bold text-md") }}
+    </div>
   </form>
+</div>
 {% endblock %}
