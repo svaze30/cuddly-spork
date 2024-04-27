@@ -17,3 +17,8 @@ class nuser:
         self.username=username
         self.password=password
         self.profilePic=profilePic
+        
+class blogpost:
+    def __init__(self,author,text):
+        self.author=author
+        self.text=text
