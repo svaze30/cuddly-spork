@@ -1,26 +1,36 @@
 {%extends "Default.html"%}
 
 {%block main%}
-<h3>Textbooks</h3>
+<div class="m-4 flex gap-4 flex-col">
+
+  <div class="flex flex-col gap-2 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4 p-4">
+    <h3 class="font-bold">Textbooks (Download)</h3>
+    
+  </br>
+  <a href="/static/documents/CCNTb.pdf" download="CCN_Tb.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">CCN_Tb</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="CCN_Tb.pdf">CCN_Tb</a>
+<a href="/static/documents/CCNTb.pdf" download="LA_Tb.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">LA_Tb</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="LA_Tb.pdf">LA_Tb</a>
+<a href="/static/documents/CCNTb.pdf" download="DAA_Tb.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">DAA_Tb</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="DAA_Tb.pdf">DAA_Tb</a>
-</br>
-<a href="/static/documents/CCNTb.pdf" download="PCS_Tb.pdf">PCS_Tb</a>
+<a href="/static/documents/CCNTb.pdf" download="PCS_Tb.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">PCS_Tb</a>
 </br>
 </br>
 
-<h3>CCN Notes</h3>
+</div>
+
+<div class="flex flex-col gap-4 justify-items-center align-items-center border border-slate-400 rounded-lg shadow-lg py-4 p-4">
+
+  <h3 class="font-bold">CCN Notes (Download)</h3>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="Network_Layer_Notes.pdf">Network_Layer_Notes</a>
+<a href="/static/documents/CCNTb.pdf" download="Network_Layer_Notes.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">Network_Layer_Notes</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="Application_Layer_Notes.pdf">Application_Layer_Notes</a>
+<a href="/static/documents/CCNTb.pdf" download="Application_Layer_Notes.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">Application_Layer_Notes</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="Data_Link_Layer_Notes.pdf">Data_Link_Layer_Notes</a>
+<a href="/static/documents/CCNTb.pdf" download="Data_Link_Layer_Notes.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">Data_Link_Layer_Notes</a>
 </br>
-<a href="/static/documents/CCNTb.pdf" download="Transport_Layer_Notes.pdf">Transport_Layer_Notes</a>
+<a href="/static/documents/CCNTb.pdf" download="Transport_Layer_Notes.pdf" class="border border-slate-400 rounded-lg shadow-lg p-2">Transport_Layer_Notes</a>
 </br>
+</div>
+</div>
 {%endblock%}

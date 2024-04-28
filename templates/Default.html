@@ -30,13 +30,16 @@
           class="nav-bar w-full flex flex-col sm:px-10 py-4 justify-between sm:flex-row"
         >
           <div class="img-logo">
-            <img src="{{url_for('static',filename='logo2.png')}}" alt="Logo" class="h-10 w-10"/>
+            <a href="/home">
+
+              <img src="{{url_for('static',filename='logo2.png')}}" alt="Logo" class="h-10 w-10"/>
+            </a>
           </div>
           <div
             class="links-container flex gap-2 sm:gap-12 text-sm sm:text-base justify-items-center"
           >
             <a class="" href="/Goals"><i class="fa fa-bullseye"></i> Goals</a>
-            <a class="" href="#"><i class="fa fa-sticky-note-o"></i> Notes</a>
+            <a class="" href="/Notes"><i class="fa fa-sticky-note-o"></i> Notes</a>
             <a class="" href="#"><i class="fa fa-fw fa-search"></i> Groups</a>
             <a class="" href="#"
               ><i class="fa fa-graduation-cap"></i> Courses</a
