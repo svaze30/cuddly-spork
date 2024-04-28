@@ -28,8 +28,8 @@ tasks=[
 ]
 
 posts=[
-    blogpost("Siddhesh Shrawne","What is 2+2???????",0),
-    blogpost("Swaroop Vaze","Aaye Newbie!!",1)
+    blogpost("Siddhesh Shrawne","Why do I need a C compiler to run python programs?",0),
+    blogpost("Swaroop Vaze","How do I center a div??",1)
 ]
 
 Users=[
@@ -108,7 +108,7 @@ def signin():
 def maint():
     form=CommentForm()
     if(form.validate_on_submit()):
-        post_id = int(request.args.get('srNo'))  # Get the post_id from the URL
+        post_id = int(request.args.get('srNo'))
         new_comment = comment(session['username'], form.Text.data)
         posts[post_id].comments.append(new_comment)
         flash('Comment posted Successfully!!', 'success')
