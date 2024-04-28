@@ -23,8 +23,8 @@ NO_POSTS=2
 
 tasks=[
     task("CCN Network Layer Assignment",datetime.date(2024,2,20),0),
-    task("Revise LA Chapter 2",datetime.date(2024,1,19),1),
-    task("Become a specialist on Codeforces",datetime.date(2024,1,18),2)
+    task("Revise LA Chapter 2",datetime.date(2024,7,19),1),
+    task("Become a specialist on Codeforces",datetime.date(2024,9,18),2)
 ]
 
 posts=[
