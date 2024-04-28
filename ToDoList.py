@@ -155,5 +155,9 @@ def goals():
         return redirect(url_for('goals'))
     return render_template("AddGoal.html",form=form,tasks=tasks)
 
+@app.route("/Notes",methods=['GET'])
+def notes():
+    return render_template("Notes.html")
+
 if(__name__=='__main__'):
     app.run(debug=True)
